@@ -17,13 +17,13 @@ export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
   @Get()
-  findAllBooks(): Book[] {
+  findAllBooks(): Promise<Book[]> {
     return this.booksService.findAllBooks();
   }
 
   @Get(':id')
-  findOneBook(@Param('id') id): string {
-    return `Book ${id}`;
+  findOneBook(@Param('id') id): Promise<Book> {
+    return this.booksService.findOneBook(id);
   }
 
   @Post()
