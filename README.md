@@ -1,5 +1,5 @@
 # BooksApi    
-REST API example for creating, reading, updating and deleting books data.   
+REST API example for create, read, update and delete books data.   
     
 Technologies: TypeScript, Nest JS, Node.js, MongoDB, Mongoose ODM.    
      

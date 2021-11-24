@@ -8,12 +8,17 @@ import {
   Param,
 } from '@nestjs/common';
 import { CreateBookDto } from './dto/create-book.dto';
+import { BooksService } from './books.service';
+import { Book } from './contracts/book.interface';
 
 @Controller('books')
 export class BooksController {
+  // injecting dependency in the constructor
+  constructor(private readonly booksService: BooksService) {}
+
   @Get()
-  findAllBooks(): string {
-    return 'Get all books!';
+  findAllBooks(): Book[] {
+    return this.booksService.findAllBooks();
   }
 
   @Get(':id')
