@@ -12,6 +12,18 @@ export class BooksService {
   }
 
   async findOneBook(id: string): Promise<Book> {
-    return await this.bookModel.findOne({ _id: id});
+    return await this.bookModel.findOne({ _id: id });
+  }
+
+  async addNewBook(book: Book): Promise<Book> {
+    return await new this.bookModel(book).save();
+  }
+
+  async deleteBook(id: string): Promise<Book> {
+    return await this.bookModel.findByIdAndRemove(id);
+  }
+
+  async updateBook(id: string, book: Book): Promise<Book> {
+    return await this.bookModel.findByIdAndUpdate(id, book, { new: true });
   }
 }

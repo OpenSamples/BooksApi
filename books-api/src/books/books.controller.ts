@@ -27,18 +27,17 @@ export class BooksController {
   }
 
   @Post()
-  addNewBook(@Body() createBookDto: CreateBookDto): string {
-    return `Title: ${createBookDto.title}, Author: ${createBookDto.author}, 
-            Written in: ${createBookDto.year}, Number of Pages: ${createBookDto.pages}`;
+  addNewBook(@Body() createBookDto: CreateBookDto): Promise<Book> {
+    return this.booksService.addNewBook(createBookDto);
   }
 
   @Delete(':id')
-  deleteBook(@Param('id') id): string {
-    return `Delete ${id}`;
+  deleteBook(@Param('id') id): Promise<Book> {
+    return this.booksService.deleteBook(id);
   }
 
   @Put(':id')
-  updateBook(@Body() updateBookDto: CreateBookDto, @Param('id') id): string {
-    return `Update ${id}, Title: ${updateBookDto.title}`;
+  updateBook(@Param('id') id, @Body() updateBookDto: CreateBookDto): Promise<Book> {
+    return this.booksService.updateBook(id, updateBookDto);
   }
 }
