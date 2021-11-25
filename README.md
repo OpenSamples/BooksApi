@@ -1,7 +1,7 @@
 # BooksApi    
     
 ### Description        
-Simple REST API example to create, read, update and delete books data.   
+Simple REST API example - create, read, update and delete books data.   
     
 ### Technologies   
 TypeScript, Nest JS, Node.js, MongoDB, Mongoose ODM.    
